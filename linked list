@@ -1,0 +1,94 @@
+/******************************************************************************
+
+                          linked list create and representation 
+                          
+                          // Singly linked list
+*******************************************************************************/
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;    //   structure of  linked list node
+    
+};
+struct node *head;             // head pointer hold the address of the starting node of the linked list
+
+int createlinkedlist()                  // create the linked list 
+{
+    struct node *newnode,*temp;
+    newnode = (struct node*)malloc(sizeof(struct node));
+    printf("\n enter the data :");
+    scanf("%d",&newnode->data);
+    newnode->next = NULL;
+    if(head == NULL)
+    {
+        head =temp = newnode;
+    }
+    else{
+        
+        temp = head;
+        while(temp->next!=NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = newnode;
+    }
+}
+
+ void displaylinkedlist()
+ {
+    struct node *temp;
+    temp = head;
+    int count = 0;
+    if(head!=NULL)
+    {
+        for(temp=head;temp!=NULL;temp=temp->next)
+        {
+            printf("\t%d->",temp->data);
+             count++;
+        }
+       
+    }
+    else
+    {
+        printf("\n\n linked list is empty");
+    }
+    
+    printf("\n\n list of data :%d",count);
+ }
+int main()
+{
+    int ch;
+    int count = 0;
+    head = 0;
+    do
+    {
+    printf("\n\n\t 1.create linked list :");
+    printf("\n\n\t 2.display linked list ");
+    printf("\n\n\t 3.exit");
+    printf("\n\n\t enter your choice :");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+        case  1:
+        createlinkedlist();
+               break;
+        case 2:
+        displaylinkedlist();
+                break;
+        case 3:
+                exit(1);
+                break;
+        default:
+            printf("you enter wrong choice :");
+            break;
+    }
+    
+    } while(ch!=3);
+    
+
+}
