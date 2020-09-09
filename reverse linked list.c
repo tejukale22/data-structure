@@ -42,7 +42,11 @@
 void display()
 {
     int count = 0;
-    if(head == newnode)
+     if(head==NULL)
+    {
+        printf("\n\n linked list is empty");
+    }
+   else if(head == newnode)
     {
         printf("\n\n After reverse the linked list is");
         for(temp =head;temp!=NULL;temp = temp->next)
@@ -51,7 +55,7 @@ void display()
         count++;
     }
 }
-    else
+ else
     {
         
    
